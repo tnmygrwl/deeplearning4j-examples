@@ -31,7 +31,7 @@ import json
 
 # Download dataset (if not already downloaded)
 filename = "iris.data"
-temp_filename = filename + '_temp'
+temp_filename = f'{filename}_temp'
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 
 if not os.path.isfile(filename):
@@ -68,7 +68,7 @@ np_array = np.array([[float(i) for i in x.split(',')] for x in output])
 x = np_array[:, :-3]
 y = np_array[:, -3:]
 
- 
+
 # Build the Keras model
 
 model = Sequential()

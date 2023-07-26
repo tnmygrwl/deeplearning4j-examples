@@ -31,7 +31,7 @@ os.mkdir(output_path_prefix)
 
 for file in files:
     file_type = file.split(".")[-1]
-    if file_type == 'json' or file_type == 'ipynb':
+    if file_type in ['json', 'ipynb']:
         with open(file) as data_file:
             if file_type == 'json':
                 data = simplejson.load(data_file)
@@ -44,9 +44,8 @@ for file in files:
                 output_path = output_path_prefix + folder_name + '/note.json'
                 data_file.seek(0)
 
-                out = open(output_path,'w')
-                out.write(data_file.read())
-                out.close()
+                with open(output_path,'w') as out:
+                    out.write(data_file.read())
             elif file_type == 'ipynb':
                 print()
                 #gateway = JavaGateway()

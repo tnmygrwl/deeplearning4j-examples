@@ -27,7 +27,7 @@ import pyspark
 
 # Download dataset (if not already downloaded)
 filename = "iris.data"
-temp_filename = filename + '_temp'
+temp_filename = f'{filename}_temp'
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 
 if not os.path.isfile(filename):
